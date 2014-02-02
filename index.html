@@ -17,8 +17,9 @@
         <th>Prices</th>
       </tr>
       {{#each}}
-      <tr {{bind-attr class="isEditing:editing"}}>
+      <tr>
         {{#if isEditing}}
+          Blah
           <td>{{input type="text"}}</td>
           <td>{{input type="text"}}</td>
           <td><button class="delete">Delete</button></td>

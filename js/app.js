@@ -61,14 +61,15 @@ App.CoffeeController = Ember.ArrayController.extend({
 
       // Save the new model
       coffee.save();
-    }
-
-    editTodo: function () {
-      console.log('Hello World');
-      this.set('isEditing', true);
     },
 
     isEditing: false,
+
+    editCoffee: function () {
+      console.log('Hello World');
+      this.set('isEditing', true);
+    }
+
   }
 });
 
