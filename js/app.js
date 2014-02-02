@@ -7,7 +7,10 @@ App.Router.map(function() {
   this.resource('coffee', { path: '/' });
 });
 
-App.IndexRoute = Ember.Route.extend({
+App.CoffeeRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('coffee');
+  }
 });
 
 // Models
@@ -16,7 +19,7 @@ App.Coffee = DS.Model.extend({
   price: DS.attr('string')
 });
 
-App.Coffee.Fixtures = [
+App.Coffee.FIXTURES = [
   {
     id: 1,
     bean: 'Espresso Torro',

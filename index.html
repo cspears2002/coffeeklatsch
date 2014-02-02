@@ -11,39 +11,19 @@
   <h2>Coffee Klatsch</h2>
 
   <script type="text/x-handlebars" data-template-name="coffee">
-    <script type="text/x-handlebars" id="index">
-      <table>
-        <tr>
-          <th>Beans</th>
-          <th>Prices</th>
-        </tr>
-        <tr>
-          <td>Espresso Torro</td>
-          <td>$17.75</td>
-          <td><button class="delete">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Sulawesi Toarco AA Tana Toraja</td>
-          <td>$18.75</td>
-          <td><button class="delete">Delete</button></td>
-        </tr>
-        <tr>
-          <td>100% Estate Kona</td>
-          <td>$39.75</td>
-          <td><button class="delete">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Ethiopia Grade 1 Sidama - Akrabi</td>
-          <td>$18.25</td>
-          <td><button class="delete">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Decaf Espresso</td>
-          <td>$17.75</td>
-          <td><button class="delete">Delete</button></td>
-        </tr>
-      </table>
-    </script>
+    <table>
+      <tr>
+        <th>Beans</th>
+        <th>Prices</th>
+      </tr>
+      {{#each}}
+      <tr>
+        <td>{{bean}}</td>
+        <td>{{price}}</td>
+        <td><button class="delete">Delete</button></td>
+      </tr>
+      {{/each}}
+    </table>
 
     <form>
       <input type="text" name="beans" placeholder="Beans">
