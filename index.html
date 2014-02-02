@@ -26,9 +26,9 @@
     </table>
 
     <form>
-      <input type="text" name="beans" placeholder="Beans">
-      <input type="text" name="price" placeholder="Price">
-      <input type="submit" value="Submit">
+      {{input type="text" placeholder="Beans" value=newBean}}
+      {{input type="text" placeholder="Price" value=newPrice}}
+      <button {{action 'createCoffee'}}>Submit</button>
     </form>
   </script>
 

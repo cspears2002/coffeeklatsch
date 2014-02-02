@@ -36,3 +36,32 @@ App.Coffee.FIXTURES = [
     price: '$39.75'
   }, 
 ];
+
+// Controllers
+App.CoffeesController = Ember.ArrayController.extend({
+  actions: {
+    createCoffee: function() {
+      console.log("Hello WOrld");
+      // Get the bean name
+      var bean = this.get('newBean');
+      if (!bean.trim()) { return; }
+
+      // Get the price
+      var price = this.get('newPrice');
+      if (!price.trim()) { return; }
+
+      // Create the new coffee model
+      var coffee = this.store.createRecord('coffee', {
+        bean: bean,
+        price: price
+      });
+
+      // Clear the text fields
+      this.set('newBean', '');
+      this.set('newPrice', '');
+
+      // Save the new model
+      coffee.save();
+    }
+  }
+});
