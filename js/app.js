@@ -38,7 +38,7 @@ App.Coffee.FIXTURES = [
 ];
 
 // Controllers
-App.CoffeesController = Ember.ArrayController.extend({
+App.CoffeeController = Ember.ArrayController.extend({
   actions: {
     createCoffee: function() {
       console.log("Hello WOrld");

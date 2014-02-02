@@ -25,11 +25,10 @@
       {{/each}}
     </table>
 
-    <form>
-      {{input type="text" placeholder="Beans" value=newBean}}
-      {{input type="text" placeholder="Price" value=newPrice}}
-      <button {{action 'createCoffee'}}>Submit</button>
-    </form>
+    {{input type="text" placeholder="Beans" value=newBean}}
+    {{input type="text" placeholder="Price" value=newPrice}}
+    <button type="button" {{action 'createCoffee'}}>Submit</button>
+    
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
