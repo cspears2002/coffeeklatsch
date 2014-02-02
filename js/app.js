@@ -41,7 +41,6 @@ App.Coffee.FIXTURES = [
 App.CoffeeController = Ember.ArrayController.extend({
   actions: {
     createCoffee: function() {
-      console.log("Hello WOrld");
       // Get the bean name
       var bean = this.get('newBean');
       if (!bean.trim()) { return; }
@@ -63,5 +62,21 @@ App.CoffeeController = Ember.ArrayController.extend({
       // Save the new model
       coffee.save();
     }
+
+    editTodo: function () {
+      console.log('Hello World');
+      this.set('isEditing', true);
+    },
+
+    isEditing: false,
   }
 });
+
+// Creating Edit View
+App.EditCoffeeView = Ember.TextField.extend({
+  didInsertElement: function() {
+    this.$().focus();
+  }
+});
+
+Ember.Handlebars.helper('edit-coffee', App.EditCoffeeView);

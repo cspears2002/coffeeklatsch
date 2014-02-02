@@ -17,10 +17,16 @@
         <th>Prices</th>
       </tr>
       {{#each}}
-      <tr>
-        <td>{{bean}}</td>
-        <td>{{price}}</td>
-        <td><button class="delete">Delete</button></td>
+      <tr {{bind-attr class="isEditing:editing"}}>
+        {{#if isEditing}}
+          <td>{{input type="text"}}</td>
+          <td>{{input type="text"}}</td>
+          <td><button class="delete">Delete</button></td>
+        {{else}}
+          <td {{action "editCoffee" on="doubleClick"}}>{{bean}}</td>
+          <td {{action "editCoffee" on="doubleClick"}}>{{price}}</td>
+          <td><button class="delete">Delete</button></td>
+        {{/if}}
       </tr>
       {{/each}}
     </table>
@@ -28,7 +34,7 @@
     {{input type="text" placeholder="Beans" value=newBean}}
     {{input type="text" placeholder="Price" value=newPrice}}
     <button type="button" {{action 'createCoffee'}}>Submit</button>
-    
+
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
