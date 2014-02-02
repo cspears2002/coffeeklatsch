@@ -38,7 +38,19 @@ App.Coffee.FIXTURES = [
 ];
 
 // Controllers
+App.CoffeeItemController = Ember.ObjectController.extend({    
+  isEditing: false,
+
+  actions: {
+    editCoffee: function () {
+      this.toggleProperty('isEditing');
+    }
+  }
+});
+
 App.CoffeeController = Ember.ArrayController.extend({
+  itemController: 'coffeeItem',
+
   actions: {
     createCoffee: function() {
       // Get the bean name
@@ -61,15 +73,7 @@ App.CoffeeController = Ember.ArrayController.extend({
 
       // Save the new model
       coffee.save();
-    },
-
-    isEditing: false,
-
-    editCoffee: function () {
-      console.log('Hello World');
-      this.set('isEditing', true);
     }
-
   }
 });
 

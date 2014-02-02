@@ -7,36 +7,31 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+   <h2>Coffee Klatsch</h2>
 
-  <h2>Coffee Klatsch</h2>
-
-  <script type="text/x-handlebars" data-template-name="coffee">
-    <table>
-      <tr>
-        <th>Beans</th>
-        <th>Prices</th>
-      </tr>
-      {{#each}}
-      <tr>
-        {{#if isEditing}}
-          Blah
-          <td>{{input type="text"}}</td>
-          <td>{{input type="text"}}</td>
-          <td><button class="delete">Delete</button></td>
-        {{else}}
-          <td {{action "editCoffee" on="doubleClick"}}>{{bean}}</td>
-          <td {{action "editCoffee" on="doubleClick"}}>{{price}}</td>
-          <td><button class="delete">Delete</button></td>
-        {{/if}}
-      </tr>
-      {{/each}}
-    </table>
+    <script type="text/x-handlebars" data-template-name="coffee">
+      Beans - Prices - Delete Button
+      <ul>
+        {{#each}}
+        <li>
+          {{#if isEditing}}
+            {{input type="text" value=bean}} -
+            {{input type="text" value=price}} -
+          <button {{action editCoffee}} class="delete">Done</button>
+          {{else}}
+            <span {{action "editCoffee" on="doubleClick"}}>{{bean}}</span>
+            <span {{action "editCoffee" on="doubleClick"}}>{{price}}</span>
+          <button class="delete">Delete</button>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
 
     {{input type="text" placeholder="Beans" value=newBean}}
     {{input type="text" placeholder="Price" value=newPrice}}
     <button type="button" {{action 'createCoffee'}}>Submit</button>
 
-  </script>
+    </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
