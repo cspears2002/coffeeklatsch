@@ -42,8 +42,14 @@ App.CoffeeItemController = Ember.ObjectController.extend({
   isEditing: false,
 
   actions: {
-    editCoffee: function () {
+    editCoffee: function() {
       this.toggleProperty('isEditing');
+    },
+
+    deleteCoffee: function() {
+      var coffee = this.get('model');
+      coffee.deleteRecord();
+      coffee.save();
     }
   }
 });

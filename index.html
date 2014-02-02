@@ -17,11 +17,11 @@
           {{#if isEditing}}
             {{input type="text" value=bean}} -
             {{input type="text" value=price}} -
-          <button {{action editCoffee}} class="delete">Done</button>
+            <button {{action editCoffee}}>Done</button>
           {{else}}
             <span {{action "editCoffee" on="doubleClick"}}>{{bean}}</span>
             <span {{action "editCoffee" on="doubleClick"}}>{{price}}</span>
-          <button class="delete">Delete</button>
+            <button {{action deleteCoffee}}>Delete</button>
           {{/if}}
         </li>
         {{/each}}
