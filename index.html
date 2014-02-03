@@ -9,36 +9,41 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <img src="img/icon_4113/icon_4113.svg" >
-  <h2>Coffee Klatsch</h2>
-
     <script type="text/x-handlebars" data-template-name="coffee">
-      Beans - Prices - Delete Button
-      <ul>
-        {{#each}}
-        <li>
-          {{#if isEditing}}
-            <form class="form-inline" role="form">
-              {{input type="text" value=bean class="form-control"}} -
-              {{input type="text" value=price class="form-control"}} -
-              <button {{action editCoffee}} class="btn btn-default">Done</button>
-            </form>
-          {{else}}
-            <span {{action "editCoffee" on="doubleClick"}}>{{bean}}</span>
-            <span {{action "editCoffee" on="doubleClick"}}>{{price}}</span>
-            <button {{action deleteCoffee}} class="btn btn-default">Delete</button>
-          {{/if}}
-        </li>
-        {{/each}}
-      </ul>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="img/icon_4113/icon_4113.svg" >
+        </div>
+        <div class="col-md-8">
+          <h2>Coffee Klatsch</h2>
+          Beans - Prices - Delete Button
+          <ul>
+            {{#each}}
+            <li>
+              {{#if isEditing}}
+                <form class="form-inline" role="form">
+                  {{input type="text" value=bean class="form-control"}} -
+                  {{input type="text" value=price class="form-control"}} -
+                  <button {{action editCoffee}} class="btn btn-default">Done</button>
+                </form>
+              {{else}}
+                <span {{action "editCoffee" on="doubleClick"}}>{{bean}}</span>
+                <span {{action "editCoffee" on="doubleClick"}}>{{price}}</span>
+                <button {{action deleteCoffee}} class="btn btn-default">Delete</button>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
 
-    <form class="form-inline" role="form">
-      {{input type="text" placeholder="Beans" value=newBean class="form-control"}}
-      {{input type="text" placeholder="Price" value=newPrice class="form-control"}}
-      <button type="button" {{action 'createCoffee'}} class="btn btn-default">Submit</button>
-    </form>
+          <form class="form-inline" role="form">
+            {{input type="text" placeholder="Beans" value=newBean class="form-control"}}
+            {{input type="text" placeholder="Price" value=newPrice class="form-control"}}
+            <button type="button" {{action 'createCoffee'}} class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
     </script>
+  </div>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
